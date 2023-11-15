@@ -1,0 +1,76 @@
+{% extends 'Layouts/buy_tickets.html' %}
+
+<!-- Nav Bar -->
+{% block nav %}
+{% for categoria in change_category %}
+
+{% if categoria.id == 5%}
+
+{% else %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'products' categoria.id %}">{{categoria.name}}</a>
+</li>
+{% endif%}
+{% endfor %}
+{% endblock %}
+
+
+<!-- Pagina Principal -->
+{% block content %}
+
+<main class="container">
+
+    <div class="card card-body bg-transparent border border-info">
+        <h1 class="text-center text-warning">Configurar Compra</h1>
+        <p>{{error}}</p>
+
+        <div class="box mb-3 border border-info-subtle">
+
+            <div class="box-header bg-transparent" onclick="toggleBox(1)">
+                <h2 class="text-light text-center fs-4">Seleccionar Metodo de Pago</h2>
+            </div>
+
+            <div class="box-content" id="box1">
+
+                {% for targeta in target %}
+                <div class="targets card card-body bg-transparent border border-success-subtle d-flex mb-3">
+
+                    <div class="direccion" id="targeta{{targeta.id}}">
+                        <p style="visibility:hidden;">{{targeta.id}}</p>
+                        <p class="fs-5 text-light">Numero de Targeta:{{targeta.target_number}}</p>
+                        <p class="fs-5 text-light">Nombre de la targeta: {{targeta.target_name}}</p>
+                    </div>
+
+                    <div class="m-auto mb-3">
+                        <button class="btn btn-primary m-auto"><a href="{% url 'update_target_ticket' targeta.id ticket.id %}" class="text-light">Editar</a></button>
+                        <button class="btn btn-primary m-auto"><a href="{% url 'delete_target_ticket' targeta.id ticket.id %}" class="text-light">Borrar</a></button>
+                        <button class="btn btn-primary elegir-targeta" dataT-id="{{ targeta.id }}">Elegir</button>
+                    </div>
+
+                </div>
+                {% endfor %}
+                <button class="btn btn-primary mt-3 mb-3"><a href="{% url 'create_target_ticket' ticket.id %}" class="text-light">Agregar Targeta</a></button>
+
+            </div>
+
+        </div>
+
+        <div class="box border-info-subtle">
+
+            <div class="box-header bg-transparent" onclick="toggleBox(2)">
+                <h2 class="text-light text-center fs-4">Configuracion General</h2>
+            </div>
+
+            <div class="box-content" id="box2">
+                <form method="post">
+                    {% csrf_token %}
+                    {{general_purchase_settings_ticket}}
+                    <button class="btn btn-primary m-auto mt-3">Confirmar Compra</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+{% endblock %}

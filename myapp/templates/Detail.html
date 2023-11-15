@@ -1,0 +1,48 @@
+{% extends 'Layouts/product_Detail.html' %}
+
+<!-- Nav Bar -->
+
+{% block nav %}
+{% for categoria in change_category %}
+{% if categoria.id == 5%}
+{% else %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'products' categoria.id %}">{{categoria.name}}</a>
+</li>
+{% endif%}
+{% endfor %}
+{% endblock %}
+
+<!-- Product Detail -->
+{% block content %}
+<main class="main">
+
+    <article class="article">
+
+        <div class="image">
+            <img src="/media/{{product.imagen}}" alt="" class="img_product">
+        </div>
+        
+
+        <div class="datos card card-body bg-dark">
+            <h1 class="text-center text-primary">{{product.name}}</h1>
+            <br>
+            <p class="fs-3 text-primary-emphasis">Temporada: {{product.temporada}}</p>
+            <p class="fs-3 text-primary-emphasis">Descripcion: {{product.description}}</p>
+            <p class="fs-3 text-primary-emphasis">Precio: {{product.price}}</p>
+            <button class="btn btn-primary">
+                <a href="{% url 'buy' product.id %}" class="text-light">Comprar</a>
+            </button>
+        </div>
+
+    </article>
+
+    <section class="section">
+
+        
+
+    </section>
+
+</main>
+
+{% endblock %}

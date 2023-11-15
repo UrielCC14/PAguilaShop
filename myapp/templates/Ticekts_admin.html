@@ -1,0 +1,32 @@
+{% extends 'Layouts/tickets_admin.html' %}
+
+{% block navLately %}
+{% for category in change_category %}
+{% if category.id == 5  %}
+
+{% else %}
+<li>
+    <a href="{% url 'ticket_admin' category.id %}">{{category.nombre}}</a>
+</li>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block target %}
+{% for ticket in tickets %}
+<div class="product">
+    
+        <h2 class="text-warning text-center">{{ticket.name}}</h2>
+        <div class="product_detail">
+        <p class="fs-4 text-light">Zona: {{ticket.zona.nombre}} </p>
+        <p class="fs-4 text-light">Price: {{ticket.Precio}} </p>
+        {% if ticket.comprado == True %}
+        <p class="fs-4 text-danger">Estado: Comprado</p>
+        {% else %}
+        <p class="fs-4 text-success">Estado: Disponible</p>
+        {% endif %}
+        
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

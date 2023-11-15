@@ -1,0 +1,30 @@
+{% extends 'Layouts/ventas.html' %}
+
+{% block navLately %}
+<li>
+    <a href="{% url 'salesP_admin' %}">Productos</a>
+</li>
+<li>
+    <a href="{% url 'salesTi_admin' %}">Tickets</a>
+</li>
+{% endblock %}
+
+<!-- COntenido Principal -->
+{% block target %}
+{% for sale in sales %}
+
+<div class="product">
+    
+    <div class="product_detail">
+        <h2 class="text-warning text-center">{{sale.product.name}}</h2>
+        <p class="fs-4 text-light">Usuario: {{sale.user.username}} </p>
+        <p class="fs-4 text-light">Date: {{sale.order_date}}</p>
+        <div class="buttons">
+            <button class="btn-option btn btn-primary"><a href="{% url 'DetailssAd' sale.id %}" class="text-light">Detalles</a></button>
+        </div>
+    </div>
+
+
+</div>
+{% endfor %}
+{% endblock %}

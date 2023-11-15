@@ -1,0 +1,53 @@
+*{
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    background: blue;
+
+}
+
+.main{
+
+    width: 50%;
+    height: 75vh;
+    margin: auto;
+    margin-top: 10vh;
+    padding: 15px;
+    background: violet;
+
+}
+
+.target{
+
+
+    height: 100%;
+    width: 100%;
+    background: #e09090;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.target h1{
+
+    text-align: center;
+    margin-top: 40px;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+.target button{
+
+    height: 35px;
+    width: 23%;
+    padding: 7px;
+    border-radius: 7px;
+    margin: auto;
+
+}

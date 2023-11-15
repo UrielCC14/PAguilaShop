@@ -1,0 +1,57 @@
+{% extends 'Layouts/shopping_history.html' %}
+
+
+<!-- Nav Bar -->
+{% block nav %}
+{% for categoria in change_category %}
+{% if categoria.id == 5%}
+{% else %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'products' categoria.id %}">{{categoria.name}}</a>
+</li>
+{% endif%}
+{% endfor %}
+{% endblock %}
+
+
+<!-- Contenido Principal -->
+{% block content %}
+
+<main class="container">
+
+    <div class="card card-body bg-transparent border border-info mt-5">
+        <h1 class="text-light text-center">Shopping History</h1>
+        {% for sale in sales %}
+
+        {% if sale.deadline__isnull %}
+
+        <div class="card card-body bg-transparent border border-info-subtle mt-5">
+            
+            <h2 class="text-info text-center">{{sale.product.name}}</h2>
+            <p class="text-info">Fecha de Pedido: {{sale.order_date}}</p>
+            <p class="text-info">Estado del Pedido: {{sale.deadline}}</p>
+            
+            <form action="{% url 'sale_completed' sale.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-primary m-auto">Entregado</button>
+            </form>
+            
+
+        </div>
+        {% else %}
+
+        <div class="card card-body bg-transparent border border-info-subtle mt-5">
+            
+            <h2 class="text-info text-center">{{sale.product.name}}</h2>
+            <p class="text-info">Fecha de Pedido: {{sale.order_date}}</p>
+            <p class="text-info">Estado del Pedido: {{sale.deadline}}</p>
+
+        </div>
+        {% endif %}
+
+        {% endfor %}
+    </div>
+
+</main>
+
+{% endblock %}

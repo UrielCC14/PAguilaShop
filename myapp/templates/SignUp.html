@@ -1,0 +1,17 @@
+{% extends  'Layouts/register_login.html' %}
+
+{% block form %}
+<form method="post" class="frm">                        
+    {{error}}
+    {% csrf_token %}
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" placeholder="Write your username" class="form-control">
+    <label for="password1">Password</label>
+    <input type="password" name="password1" id="password1" placeholder="Write your password" class="form-control">
+    <label for="passwor2">Confirm your password</label>
+    <input type="password" name="password2" id="password2" placeholder="Confirm your password" class="form-control">
+    <button class="btn btn-primary mt-15">SignUp</button>
+
+</form>
+<p>¿Ya tienes una cuenta?<a href="{% url 'SignIn' %}" class="btn-login"> Iniciar Sesion</a></p>
+{% endblock %}

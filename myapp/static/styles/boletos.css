@@ -1,0 +1,169 @@
+*{
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #fff;
+    list-style: none;
+
+}
+
+
+body{
+
+    background: #0e141b;
+    padding-bottom: 10px;
+}
+
+
+/*Main*/
+
+.main{
+
+    height: 100%;
+    width: 100%;
+    padding: 7px;
+    /* background: green;   */
+}
+
+/*Article*/
+
+.article{
+
+    height: 100%;
+    width: 100%;
+    padding: 7px;
+    /* background: violet; */
+    justify-content: space-between;
+
+}
+
+.estadio{
+
+    height: 100%;
+    width: 100;
+    padding: 15px;
+    /* background: rgb(7, 4, 7); */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.categoria-asiento{
+
+    height: 100%;
+    width: 25%;
+    background: #1e2731;
+    padding: 10px;
+
+}
+
+.categoria-asiento ul{
+
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    /* background: blue; */
+
+}
+
+.categoria-asiento ul li{
+
+    display: block;
+    padding: 7px;
+    height: 4em;
+    width: 100%;
+    text-align: center;
+    /* background: #c31010; */
+
+}
+
+.categoria-asiento ul li button{
+
+    color: #000;
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    background: #3974b9;
+
+}
+
+.zone-btn:nth-child(1){
+
+    background: #d82653;
+}
+
+.zone-btn:nth-child(2){
+
+    background: #ffb17e;
+}
+
+.zone-btn:nth-child(3){
+    background: #9d74b8;
+}
+
+.zone-btn:nth-child(4){
+
+    background: #d82653;
+}
+
+.estadio-img{
+
+    height: 100%;
+    width: 70%;
+    /* background: #ca9116; */
+    object-fit: contain;
+
+}
+
+.estadio-img img{
+
+    height: 100%;
+    width: 100%;
+    object-fit: inherit;
+
+}
+
+.reservaciones{
+
+    margin-top: 25px;
+    height: 100%;
+    width: 100%;
+    background: #1e2731;
+    padding: 10px;
+
+}
+
+.reservaciones ul{
+
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    /* background: blue; */
+
+}   
+
+.reservaciones ul li{
+
+    display: block;
+    padding: 7px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-top: 5em;
+    /* background: #c31010; */
+
+}
+
+
+.reservaciones ul li button{
+
+    color: #000;
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    background: #3974b9;
+
+}

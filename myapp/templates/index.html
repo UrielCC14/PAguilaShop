@@ -1,0 +1,16 @@
+{% extends 'Layouts/inicio.html' %}
+
+
+{% block nav %}
+
+{% for categoria in category %}
+{% if categoria.id == 5%}
+
+{% else %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'products' categoria.id %}">{{categoria.name}}</a>
+</li>
+{% endif%}
+
+{% endfor %}
+{% endblock %}

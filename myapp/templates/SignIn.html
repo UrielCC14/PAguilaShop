@@ -1,0 +1,11 @@
+{% extends 'Layouts/register_login.html' %}
+    
+{% block form%}
+<form method="post" class="frm">
+    {{error}}
+    {% csrf_token %}
+    {{form}}
+    <button class="login-btn">Iniciar Sesion</button>
+</form>
+<p>¿Aun no tienes una cuenta?<a href="{% url 'SignUp' %}" class="btn-login">Registrate</a></p>
+{% endblock %}

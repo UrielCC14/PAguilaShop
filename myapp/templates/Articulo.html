@@ -1,0 +1,124 @@
+{% extends 'Layouts/articulos.html' %}
+
+<!-- Nav Bar -->
+{% block nav %}
+{% for categoria in elegir %}
+{% if categoria.id == 5%}
+{% else %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'products' categoria.id %}">{{categoria.name}}</a>
+</li>
+{% endif%}
+{% endfor %}
+{% endblock %}
+
+<!-- Block Content -->
+{% block content %}
+
+<main class="main">
+
+    <article class="article">
+
+        <div class="inicio">
+
+            <div class="inicio-content">
+                <h1 class="intercalated-bg">{{category.name}}</h1>
+                <p>Encuentra todas las {{categoria.name}} Oficiales y de la mejor calidad del Club America.</p>
+
+                {% if user.is_authenticated %}
+
+                {% else %}
+
+                <button class="btn btn-dark"><a href="{% url 'SignUp' %}">SignUp</a></button>
+                <button class="btn btn-dark"><a href="{% url 'SignIn' %}">SignIn</a></button>
+                {% endif %}
+
+            </div>
+
+            <div class="inicio-image">
+                
+            </div>
+            
+        </div>
+        
+    </article>
+
+    <section class="section">
+
+        <h2 class="text-center">Todos nuestros productos</h2>
+        <div class="all-products">
+
+            {% for producto in product %}
+            <div class="producto">
+            
+                <div class="img-producto">
+                    <img src="media/{{producto.imagen}}" alt="producto">
+                </div>
+                <div class="producto-Info">
+                    <h3 class="text-center">{{producto.name}}</h3>
+                    <p>Descripcion: {{producto.description}}</p>
+                    <p>Precio: {{producto.price}}</p>
+                    <button class="btn btn-dark"><a href="{% url 'detail' producto.id %}">Comprar</a></button>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="otros-productos">
+
+            <h2>Otras Secciones</h2>
+
+            {% for target in targets %}
+
+            {% if target.name == 'tickets' %}
+
+            {% else %}
+            <div class="target">
+                <div class="name-product">
+                    <h3>{{target.name}}</h3>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui fugiat totam voluptate laboriosam obcaecati nesciunt, repudiandae consequatur sint sequi itaque ratione deleniti in facere eveniet tenetur, accusamus velit. Ipsam repellendus et magnam vitae similique ea natus nobis accusamus quis ad cum, fugiat alias ipsum maiores molestias laudantium harum doloremque corrupti.</p>
+                    <button class="otros-productos-btn"><a href="{% url 'products' target.id %}">Ver</a></button>
+                </div>
+
+            </div>
+            {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="info-footer">
+
+        <h3>Mas informacon sobre AguilaShop</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat culpa vel nam blanditiis, voluptatibus tempora ut, ad suscipit obcaecati natus voluptas molestias at deleniti fuga, iure magnam quo? Quis, voluptatibus fugiat quos est sapiente hic modi non, ea praesentium quod architecto cum illum explicabo possimus? Quasi ex et quod? Deserunt?</p>
+
+    </div>
+
+    <div class="footer-sosial-media">
+        <h3>Redes Sociales</h3>
+        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Facebook</a></i>
+        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Instagram</a></i>
+        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Twitter</a></i>
+        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Goole</a></i>
+    </div>
+    <div class="footer-contact">
+        <h3>Informacion de Contacto</h3>
+        <i class="fa-solid fa-house"><a>safasfasasfsaf <br>safnaskfbaskfabsfa <br>nsaijkhdasufhsafh</a></i>
+        <i class="fa-solid fa-mobile-screen"><a>+52 55-0245-0025</a></i>
+        <i class="fa-regular fa-envelope"><a>saihafiuh@gmail.com</a></i>
+    </div>
+
+</footer>
+
+{% endblock %}

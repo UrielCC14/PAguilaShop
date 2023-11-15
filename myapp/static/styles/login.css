@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+
+}
+
+body{
+
+    background: #0e141b;
+    display: flex;
+    padding: 25px;
+
+}
+
+.main{
+
+    height: 105vh;
+    width: 80vw;
+    margin: auto;
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+
+}
+
+.login{
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.return:hover{
+    cursor: pointer;
+}
+
+.datos{
+
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    /*background:#b80b0b;*/
+
+
+}
+
+.datos img{
+
+    height: 5em;
+    width: 5em;
+    margin: 10px 0 5px 0;
+    /*background: #0e141b;*/
+}
+
+.datos h2{
+
+    font-size: 35px;
+
+}
+
+.datos p{
+
+    font-size: 25px;
+
+}
+
+.datos p a{
+
+    color: #000;
+
+}
+
+.datos p a:hover{
+
+    color: hsl(0, 1%, 18%);
+
+}
+
+.frm-register{
+
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    /*background: violet;*/
+
+}
+
+.frm{
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 75%; 
+    margin: 15px;
+    /*background: aqua;*/
+
+}
+
+.frm label{
+
+    font-size: 25px;
+
+}
+
+.frm input{
+
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0.5px solid #555;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    
+}
+
+.frm input:focus{
+
+    
+    background: #f1efef;
+    padding: 5px    ;
+
+}
+
+.login-btn{
+
+    font-size: 17px;
+    margin: 15px 0;
+    background: rgb(36, 87, 154);
+    padding: 8px;
+    transition: all 300ms;
+
+}
+
+.login-btn:hover{
+
+    cursor: pointer;
+    background: rgb(47, 101, 172);
+
+}
+
+.img-login{
+
+    height: 100%;
+    width: 50%;
+    background: #1a242f;
+    display: flex;
+    align-items: center;
+
+}
+
+.img-login img{
+
+    height: 75%;   
+
+}
+
+
+.frm-login{
+
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    /*background: violet;*/
+
+}
+
+.hidden{
+
+    display: none;
+
+}

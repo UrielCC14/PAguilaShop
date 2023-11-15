@@ -1,0 +1,40 @@
+{% extends 'Layouts/articulos_admin.html' %}
+
+{% block navLately %}
+{% for category in change_category %}
+{% if category.id == 5  %}
+
+{% else %}
+<li>
+    <a href="{% url 'product_admin' category.id %}">{{category.name}}</a>
+</li>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block target %}
+{% for producto in products %}
+<div class="product">
+    <div class="product-img">
+        <img src="/media/{{producto.imagen}}" alt="Imagen">
+    </div>
+    <div class="product_detail">
+        <h2 class="text-info text-center">{{producto.name}}</h2>
+        <p class="fs-4 text-light">Description: {{producto.description}} </p>
+        <p class="fs-4 text-light">Price: {{producto.price}} </p>
+        <p class="fs-4 text-light">Category: {{producto.category}} </p>
+        <p class="fs-4 text-light">Season: {{producto.temporada}}</p>
+        <div class="buttons">
+            <button class="btn-option btn btn-primary"><a href="{% url 'update_product' producto.id %}" class="text-light">Modificar</a></button>
+            <button class="btn-option btn btn-primary"><a href="{% url 'delete_product' producto.id %}" class="text-light">Eliminar</a></button>
+        </div>
+        
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+{% block button %}
+        <button class="btn-agregar btn btn-primary"><a href="{% url 'create_product' %}" class="text-light">Agregar Producto</a></button>
+{% endblock %}

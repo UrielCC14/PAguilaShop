@@ -1,0 +1,56 @@
+{% extends 'Layouts/boletos.html' %}
+<!-- Nav Bar -->
+{% block nav %}
+{% for categoria in category %}
+{% if categoria.id == 5%}
+
+{% else %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'products' categoria.id %}">{{categoria.name}}</a>
+</li>
+{% endif%}
+
+{% endfor %}
+{% endblock %}
+
+<!--  Elegir zona  -->
+{% block zones %}
+{% for zona in zone %}
+<li>
+    <button id="{{zona.nombre}}" class="zone-btn"><a href="{% url 'seating' zona.id %}" class="text-dark">{{zona.nombre}}</a></button>
+</li>
+{% endfor %}
+{% endblock %}
+
+
+<!-- Imagen de la zona -->
+{% block simg %}
+{% for imagen in img %}
+<img src="/media/{{imagen.image}}" alt="Estadio ">
+{% endfor %}
+{% endblock %}
+
+
+<!-- Asientos disponibles  -->
+{% block seating %}
+{% for asiento in seating %}
+{% if asiento.comprado == True %}
+<li class="seating">
+
+    <div class="card card-body bg-transparent border border-danger">
+        <h2 class="text-info text-center">{{asiento.name}}</h2>
+        <p class="text-info">Precio: {{asiento.Precio}}</p>
+    </div>
+
+</li>
+{% else %}
+<li>
+    <div class="card card-body bg-transparent border border-info d-flex">
+        <h2 class="text-info text-center">{{asiento.name}}</h2>
+        <p class="text-info">Price: ${{asiento.Precio}}</p>
+        <button class="btn btn-primary m-auto"><a href="{% url 'buy_tickets' asiento.id %}" class="text-light">Comprar</a></button>
+    </div>
+</li>
+{% endif %}
+{% endfor %}
+{% endblock %}

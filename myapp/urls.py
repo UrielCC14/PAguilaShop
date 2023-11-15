@@ -1,0 +1,40 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name='index'),
+    path('<int:id>',views.product_catalog,name="products"),
+    path('detail<int:id>/',views.Detail,name="detail"),
+    path('buy<int:id>/',views.Buy_confirm,name="buy"),
+    path('tickets/',views.tickets,name='tickets'),
+    path('tickets<int:id>',views.seating,name="seating"),
+    path('SignUp/',views.SignUp,name="SignUp"),
+    path('SignIn/',views.SignIn,name='SignIn'),
+    path('SignOut/',views.SignOut,name= 'SignOut'),
+    path('successful/',views.SuccessfulPurchase,name= 'Successful'),
+    path('products_admin/',views.products_admin,name= 'products_admin'),
+    path('products_admin<int:id>/',views.product_admin,name= 'product_admin'),
+    path('delete_address<int:id>/<int:id_product>/',views.Address_Delete,name= 'delete_address'),
+    path('delete_target<int:id>/<int:product_id>/',views.Target_Delete,name= 'delete_target'),
+    path('create_address/<int:id_product>/',views.New_address,name= 'create_address'),
+    path('create_target/<int:id_product>/',views.New_target,name= 'create_target'),
+    path('update_address<int:id>/<int:product_id>/',views.Update_Address,name= 'update_address'),
+    path('update_target<int:id>/<int:target_id>/',views.Update_Target,name= 'update_target'),
+    path('create_product/',views.Create_Products,name= 'create_product'),
+    path('update_product<int:id>/',views.Update_Product,name= 'update_product'),
+    path('delete_product<int:id>/',views.Product_Delete,name= 'delete_product'),
+    path('shopping_history/',views.Shopping_History,name= 'shopping_history'),
+    path('sale_completed<int:id>/',views.Sale_COmpleted,name= 'sale_completed'),
+    path('buy_tickets<int:id>/',views.Buy_Tickets,name= 'buy_tickets'),
+    path('create_target_ticket/<int:id_ticket>/',views.New_target_ticket,name= 'create_target_ticket'),
+    path('delete_target_ticket<int:id>/<int:ticket_id>/',views.Target_Delete_ticket,name= 'delete_target_ticket'),
+    path('update_target-ticket<int:id>/<int:ticket_id>/',views.Update_Target_ticket,name= 'update_target_ticket'),
+    path('TicketsAdmin/',views.Tickets_admin,name= 'tickets_admin'),
+    path('TicketAdmin<int:id>/',views.Ticket_admin,name= 'ticket_admin'),
+    path('SalesAd/',views.Sales_Ad,name= 'salesP_admin'),
+    path('SalesTiAd/',views.SalesT_Ad,name= 'salesTi_admin'),
+    path('DetailssAd<int:id>/',views.Detilss_Adm,name= 'DetailssAd'),
+    path('DetailssTAd<int:id>/',views.DetilssT_Adm,name= 'DetailssTAd'),
+    
+    
+]

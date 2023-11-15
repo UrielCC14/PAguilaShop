@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.main{
+    height: 100%;
+    padding: 15px;
+    /* background: rgb(147, 58, 147); */
+}
+
+.article{
+
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    /* background: blue; */
+
+}
+
+.sidebar {
+    width: 20%;
+    height: 100%;
+    color: #fff;
+    padding: 15px;
+    /* background: gray; */
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #444;
+    border-radius: 5px;
+}
+
+.menu li:hover {
+    background: #565353;
+    transition: all 700ms;
+}
+
+.menu a {
+    text-decoration: none;
+    color: rgb(71, 71, 227);
+    font-size: 18px;
+    display: block;
+    transition: 0.3s;
+}
+.products-container{
+
+    height: 100%;
+
+}
+
+.product{
+
+    height: 45vh;
+    width: 100%;
+    margin: 15px 0 15px 0;
+    padding: 5px;
+    display: flex;
+    border-radius: 7px;
+    background: rgb(45, 45, 77);
+
+}
+
+.product-img{
+
+    height:100%;
+    width: 30%;
+    padding: 15px;
+    object-fit: contain;
+    /* background: blue; */
+
+}
+
+.product-img img{
+
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.product_detail{
+
+    height: 100%;
+    width: 70%;
+    padding: 7px;
+    /* background: violet; */
+    position: relative;
+
+}
+
+.btn-agregar{
+
+    margin-left: 50%;
+
+}
+
+.buttons{
+
+    /* background: blue; */
+    position: absolute;
+    display: flex;
+    left: 40%;
+    top: 80%;
+
+}
+
+.btn-option{
+
+    margin-left: 50%;
+
+}
