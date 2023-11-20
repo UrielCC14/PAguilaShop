@@ -11,9 +11,8 @@
 
 body{
 
-    background: #0e141b;
-    padding-bottom: 10px;
-
+    background: rgb(255,170,0);
+    background: linear-gradient(90deg, rgba(255,170,0,1) 0%, rgba(0,20,130,1) 100%);
 }
 
 .nav-bar{
@@ -193,7 +192,6 @@ body{
     display: flex;  
     flex-direction: column;
     padding:20px;
-    background: #17212c;
 
 }
 
@@ -221,12 +219,14 @@ body{
 .element h2{
 
     margin-bottom: 10px;
+    color: rgb(0, 0, 0);
 
 }
 
 .element i{
 
     font-size: 35px;
+    color: rgb(0, 0, 0);
 
 }
 
@@ -244,14 +244,15 @@ body{
 
     height: 7em;
     width: 90%;
-    background: rgb(14,20,27);
-    background: linear-gradient(90deg, rgba(14,20,27,1) 0%, rgba(26,26,70,1) 65%, rgba(65,65,65,1) 100%);
+    background: rgb(255,170,0);
+    background: linear-gradient(90deg, rgba(255,170,0,1) 0%, rgba(0,20,130,1) 100%);
     margin: auto;
     margin-bottom:50px;
     position: relative;
     display: flex;
     padding: 10px;
     align-items: center;
+    border-radius: 7px;
 
 }
 
@@ -261,6 +262,7 @@ body{
     width:50%;
     text-align: center;
     margin: auto;
+    color: #444;
 
 }
 
@@ -268,6 +270,8 @@ body{
 
     margin-left: 0;
     flex-direction: row-reverse;
+    background: rgb(0,20,130);
+    background: linear-gradient(90deg, rgba(0,20,130,1) 0%, rgba(255,170,0,1) 100%);
 
 }
 
@@ -286,7 +290,7 @@ body{
     display: flex;
     margin-top: 20px;
     justify-content: space-evenly;
-    /*background: violet;*/
+    background: #0e141b;
 
 }
 

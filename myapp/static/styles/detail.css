@@ -29,7 +29,8 @@ body{
     display: flex;
     margin: auto;
     align-items: center;
-    background: #1a2530;
+    border: solid #fff 3px;
+    border-radius: 7px;
 
 }
 
@@ -60,6 +61,9 @@ body{
     width: 60%;
     background: #cc3208;
     padding: 5px 15px 5px 15px;
+    background: transparent;
+    border: solid #333 3px;
+
 
 }
 

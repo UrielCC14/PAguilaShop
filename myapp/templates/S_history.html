@@ -18,36 +18,54 @@
 {% block content %}
 
 <main class="container">
-
+    <h1 class="text-light text-center">Shopping History</h1>
+    <!-- Productos  -->
     <div class="card card-body bg-transparent border border-info mt-5">
-        <h1 class="text-light text-center">Shopping History</h1>
+        <h2 class="text-light text-center">Products</h2>
         {% for sale in sales %}
 
-        {% if sale.deadline__isnull %}
-
+        {% if sale.deadline == NULL %}
         <div class="card card-body bg-transparent border border-info-subtle mt-5">
             
             <h2 class="text-info text-center">{{sale.product.name}}</h2>
             <p class="text-info">Fecha de Pedido: {{sale.order_date}}</p>
-            <p class="text-info">Estado del Pedido: {{sale.deadline}}</p>
+            <p class="text-info">Estado del Pedido: Pendiente</p>
             
-            <form action="{% url 'sale_completed' sale.id %}" method="post">
+            <form action="{% url 'sale_completed' sale.id %}" method="post" class="m-auto">
                 {% csrf_token %}
-                <button class="btn btn-primary m-auto">Entregado</button>
+                <button class="btn btn-success m-auto">Entregado</button>
+                <a href="{% url 'SaleP_Detail' sale.id %}" class="btn btn-primary m-auto">Detalles</a>
             </form>
             
 
         </div>
         {% else %}
-
         <div class="card card-body bg-transparent border border-info-subtle mt-5">
             
             <h2 class="text-info text-center">{{sale.product.name}}</h2>
             <p class="text-info">Fecha de Pedido: {{sale.order_date}}</p>
             <p class="text-info">Estado del Pedido: {{sale.deadline}}</p>
+            <a href="{% url 'SaleP_Detail' sale.id %}" class="btn btn-primary m-auto">Detalles</a>
 
         </div>
         {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Tickets  -->
+    <div class="card card-body bg-transparent border border-info mt-5">
+        <h2 class="text-light text-center">Tickets</h2>
+        {% for sale in sales_tickets %}
+        
+        <div class="card card-body bg-transparent border border-info-subtle mt-5">    
+            <h2 class="text-info text-center">{{sale.ticket.name}}</h2>
+            <p class="text-info">Fecha de Pedido: {{sale.order_date}}</p>
+            
+            <div class="m-auto">
+                <a href="{% url 'SaleT_Admin' sale.id %}" class="btn btn-primary m-auto">Detalles</a>
+            </div>
+
+        </div>
 
         {% endfor %}
     </div>

@@ -23,13 +23,13 @@
                     <p class="fs-2">Order Date: {{sale.order_date}}</p>
                     <p class="fs-2">Amount : {{sale.amount}}</p>
                     <p class="fs-2">Total: {{sale.total}}</p>
-                    {% if sale.deadline == NULL %}
-                    <p class="fs-2">DeadLine: Pending</p>
+                    {% if sale.deadline__isnull %}
+                    <p class="fs-2">Order Date: Pending</p>
                     {% else %}
-                    <p class="fs-2">DeadLine: {{sale.deadline}}</p>
+                    <p class="fs-2">Order Date: {{sale.order_date}}</p>
                     {% endif %}                    
 
-                    <a href="{% url 'salesP_admin' %}" class="btn btn-primary text-light">Okay</a>
+                    <a href="{% url 'shopping_history' %}" class="btn btn-primary text-light">Okay</a>
 
                 </div>
             </div>

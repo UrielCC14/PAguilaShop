@@ -59,10 +59,10 @@ class Create_NEw_Product(forms.ModelForm):
     category = forms.ModelChoiceField(
         queryset=Category.objects.all(),
         empty_label="Select a category",
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control bg-transparent text-light'})
     )
     imagen = forms.ImageField(  # Campo para la imagen
-        widget=forms.ClearableFileInput(attrs={'class': 'form-control'})
+        widget=forms.ClearableFileInput(attrs={'class': 'form-control bg-transparent text-light'})
     )
     
     class Meta:
@@ -70,10 +70,10 @@ class Create_NEw_Product(forms.ModelForm):
         fields = ['name','temporada','description','price','imagen','category']
    
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write the product name'}),
-            'temporada': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write the season'}),
-            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write the description'}),
-            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Write the price'}),
+            'name': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the product name'}),
+            'temporada': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the season'}),
+            'description': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the description'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the price'}),
         }
         
         
@@ -82,15 +82,15 @@ class Create_New_Ticket(forms.ModelForm):
     zona = forms.ModelChoiceField(
         queryset=Zona.objects.all(),
         empty_label="Select a Zone",
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control bg-transparent text-light'})
     )
     
     class Meta:
         model = Tickets
-        fields =['name','Precio']
+        fields =['name','Precio','zona']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write the product name'}),
-            'Precio': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Write the season'}),
+            'name': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the product name'}),
+            'Precio': forms.NumberInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the season'}),
         }
         
 class general_purchase_settings_ticket(forms.Form):
@@ -112,3 +112,27 @@ class general_purchase_settings_ticket(forms.Form):
     
     total = forms.CharField(
         label="Total:", max_length=200, widget=forms.NumberInput(attrs={'class': 'form-control bg-transparent text-light','id':'total'}))
+    
+
+class Create_New_Category(forms.ModelForm):
+    class Meta:     
+        model = Category
+        fields = ['name', 'description']
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control bg-transparent text-light','placeholder': 'Write a Name'}),
+            'description': forms.Textarea(attrs={'class':'form-control bg-transparent text-light','placeholder': 'Write a description'}),
+        }
+        
+class Create_New_Zone(forms.ModelForm):
+    
+    image = forms.ImageField(  # Campo para la imagen
+        widget=forms.ClearableFileInput(attrs={'class': 'form-control bg-transparent text-light'})
+    )
+    
+    class Meta:
+        model = Zona
+        fields = ['nombre','descripcion','image']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control bg-transparent text-light','placeholder': 'Write a Name'}),
+            'descripcion': forms.Textarea(attrs={'class':'form-control bg-transparent text-light','placeholder': 'Write a description'}),
+        }

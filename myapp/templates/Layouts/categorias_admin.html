@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'styles/tickets_admin.css' %}">
-    <title>Tickets Admin</title>
+    <link rel="stylesheet" href="{% static 'styles/category_admin.css' %}">
+    <title>Categorys Admin</title>
 </head>
 <body>
 
@@ -22,6 +22,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'CategoryAdmin' %}">Categorias</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'products_admin' %}">Articulos</a>
                     </li>
@@ -46,28 +47,27 @@
         <article class="article">
 
             <div class="sidebar">
-                <h2 class="text-center fs-4 text-primary">Tickets</h2>
+                <h2 class="text-center fs-4 text-primary">Categorias</h2>
                 <ul class="menu">
                     {% block navLately %}
                     {% endblock %}
-                    <li>
-                        <a href="{% url 'create_Zone' %}" class="btn btn-primary text-light">Add Zone</a>
-                    </li>
                 </ul>
-                
             </div>
 
             <div class="products-container card card-body bg-dark ps-5 d-flex flex-column">
-                <h2 class="text-light text-center">Administrar Tickets</h2>
-                {% block button %}
-                {% endblock %}
+                <h2 class="text-light text-center">Administrar Categorias</h2>
                 {% block target %}
                 {% endblock %}
+
             </div>
 
         </article>
 
+        {% block button %}
+        {% endblock %}
+
     </main>
+
     
 </body>
 </html>

@@ -1,0 +1,37 @@
+{% extends 'Layouts/categorias_admin.html' %}
+
+{% block navLately %}
+{% for category in change_category %}
+{% if category.id == 5 %}
+{% else %}
+<li>
+    <a href="{% url 'Update_Category' category.id %}">{{category.name}}</a>
+</li>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+<!-- Contenido Principal -->
+{% block target %}
+{% for category in change_category %}
+{% if category.id == 5 %}
+{% else %}
+<div class="product">
+    <div class="product_detail">
+        <h2 class="text-info text-center">{{category.name}}</h2>
+        <p class="fs-4 text-light text-center">Description: {{category.description}}</p>   
+        <div class="d-flex m-auto">
+            <a href="{% url 'Delete_Category' category.id %}" class="btn btn-danger m-auto">Eiminar</a>
+            <a href="{% url 'Update_Category' category.id %}" class="btn btn-primary m-auto">Editar</a>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+
+{% block button %}
+<button class="btn-agregar btn btn-primary"><a href="{% url 'create_Category' %}" class="text-light">Agregar categoria</a></button>
+{% endblock %}

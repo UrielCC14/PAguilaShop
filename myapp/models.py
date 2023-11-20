@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200,unique=True)
     description = models.TextField()
     
     def __str__(self):
@@ -58,7 +58,7 @@ class Sale(models.Model):
         return self.product.name
     
 class Zona(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=200,unique=True)
     descripcion = models.TextField(max_length=200)
     image = models.ImageField(upload_to='zones',null=True)
     

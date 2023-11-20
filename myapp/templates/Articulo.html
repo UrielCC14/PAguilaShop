@@ -22,8 +22,8 @@
         <div class="inicio">
 
             <div class="inicio-content">
-                <h1 class="intercalated-bg">{{category.name}}</h1>
-                <p>Encuentra todas las {{categoria.name}} Oficiales y de la mejor calidad del Club America.</p>
+                <h1 class="text-body-emphasis">{{category.name}}</h1>
+                <p class="text-body-secondary">Encuentra todas las {{categoria.name}} Oficiales y de la mejor calidad del Club America.</p>
 
                 {% if user.is_authenticated %}
 
@@ -55,10 +55,10 @@
                     <img src="media/{{producto.imagen}}" alt="producto">
                 </div>
                 <div class="producto-Info">
-                    <h3 class="text-center">{{producto.name}}</h3>
-                    <p>Descripcion: {{producto.description}}</p>
-                    <p>Precio: {{producto.price}}</p>
-                    <button class="btn btn-dark"><a href="{% url 'detail' producto.id %}">Comprar</a></button>
+                    <h3 class="text-center text-danger">{{producto.name}}</h3>
+                    <p class="text-body-emphasis">Descripcion: {{producto.description}}</p>
+                    <p class="text-body-emphasis">Precio: {{producto.price}}</p>
+                    <button class="btn btn-dark"><a href="{% url 'detail' producto.id %}" class="text-light">Comprar</a></button>
                 </div>
 
             </div>
@@ -81,8 +81,8 @@
                     <h3>{{target.name}}</h3>
                 </div>
                 <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui fugiat totam voluptate laboriosam obcaecati nesciunt, repudiandae consequatur sint sequi itaque ratione deleniti in facere eveniet tenetur, accusamus velit. Ipsam repellendus et magnam vitae similique ea natus nobis accusamus quis ad cum, fugiat alias ipsum maiores molestias laudantium harum doloremque corrupti.</p>
-                    <button class="otros-productos-btn"><a href="{% url 'products' target.id %}">Ver</a></button>
+                    <p class="text-body-emphasis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui fugiat totam voluptate laboriosam obcaecati nesciunt, repudiandae consequatur sint sequi itaque ratione deleniti in facere eveniet tenetur, accusamus velit. Ipsam repellendus et magnam vitae similique ea natus nobis accusamus quis ad cum, fugiat alias ipsum maiores molestias laudantium harum doloremque corrupti.</p>
+                    <button class="btn btn-primary"><a href="{% url 'products' target.id %}" class="text-light">Ver</a></button>
                 </div>
 
             </div>

@@ -1,0 +1,33 @@
+{% extends 'Layouts/categorias_admin.html' %}
+
+{% block navLately %}
+{% for category in change_category %}
+{% if category.id == 5 %}
+{% else %}
+<li>
+    <a href="{% url 'Update_Category' category.id %}">{{category.name}}</a>
+</li>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+<!-- Contenido Principal -->
+{% block target %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-5 offset-md-3">
+            <form  method="post" class="card card-body mt-5 bg-transparent border-light" enctype="multipart/form-data">
+                <h1 class="text-center text-info">Update Category</h1>
+                {{error}}
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="d-flex m-auto">
+                    <button class="btn btn-primary">Update</button>
+                    <a href="{% url 'Delete_Category' category.id %}" class="btn btn-primary m-auto ms-3">Eiminar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

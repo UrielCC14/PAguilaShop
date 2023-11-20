@@ -35,6 +35,16 @@ urlpatterns = [
     path('SalesTiAd/',views.SalesT_Ad,name= 'salesTi_admin'),
     path('DetailssAd<int:id>/',views.Detilss_Adm,name= 'DetailssAd'),
     path('DetailssTAd<int:id>/',views.DetilssT_Adm,name= 'DetailssTAd'),
-    
-    
+    path('CategoryAdmin/',views.CategoryAdmin,name= 'CategoryAdmin'),
+    path('Create_Category/',views.New_Category,name= 'create_Category'),
+    path('Update_Category<int:id>/',views.Update_Category,name= 'Update_Category'),
+    path('Delete_Category<int:id>/',views.Delete_Category,name= 'Delete_Category'),
+    path('Create_Zone/',views.New_Zone,name= 'create_Zone'),
+    path('Create_ticket/',views.New_Ticket,name= 'create_ticket'),
+    path('Delete_Zone<int:id>/',views.Delete_Zone,name= 'Delete_Zone'),
+    path('Update_Zone<int:id>/',views.Update_Zone,name= 'Update_Zone'),
+    path('Delete_Ticket<int:id>/',views.Delete_Ticket,name= 'Delete_Ticket'),
+    path('Update_Ticket<int:id>/',views.Update_Ticket,name= 'Update_Ticket'),
+    path('SaleP_Detail<int:id>/',views.SaleP_Detail,name= 'SaleP_Detail'),
+    path('SalesT_Detail<int:id>/',views.SalesT_Detail,name= 'SaleT_Admin'),
 ]

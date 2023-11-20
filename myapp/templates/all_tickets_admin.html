@@ -33,12 +33,11 @@
 
 </div>
 {% endfor %}
+
 {% endblock %}
 
 {% block button %}
 <div class="d-flex mt-4 mb-4">
-    <a href="{% url 'Delete_Zone' zone.id %}" class="btn btn-danger m-auto">Delete Zone</a>
-    <a href="{% url 'create_ticket' %}" class="btn btn-primary m-auto">Add Ticket</a>
-    <a href="{% url 'Update_Zone' zone.id %}" class="btn btn-success m-auto">Update Zone</a>  
+    <a href="{% url 'create_ticket' %}" class="btn btn-primary m-auto">Add Ticket</a> 
 </div>
 {% endblock %}
