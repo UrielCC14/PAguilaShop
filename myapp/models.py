@@ -1,5 +1,15 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group
+from django.db.models.signals import post_migrate
+from django.dispatch import receiver
+
+# Modelos de tu aplicación
+
+@receiver(post_migrate)
+def create_admin_group(sender, **kwargs):
+    if not Group.objects.filter(name='Administradores').exists():
+        Group.objects.create(name='Administradores')
+
 
 # Create your models here.
 
@@ -84,3 +94,9 @@ class Sale_Tickets(models.Model):
     
     def __str__(self):
         return self.ticket.name
+    
+def create_admin_group(sender, **kwargs):
+    if not Group.objects.filter(name='Administradores').exists():
+        Group.objects.create(name='Administradores')
+
+models.signals.post_migrate.connect(create_admin_group, sender=models)

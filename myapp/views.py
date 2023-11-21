@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Category, Product, Sale, Tickets, Zona,Shipping_Address,Targets,Sale_Tickets
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.db import IntegrityError
-from .forms import general_purchase_settings,Create_Address_Form,Create_Target_Form,Create_NEw_Product,Create_New_Ticket,general_purchase_settings_ticket,Create_New_Category,Create_New_Zone
+from .forms import general_purchase_settings,Create_Address_Form,Create_Target_Form,Create_NEw_Product,Create_New_Ticket,general_purchase_settings_ticket,Create_New_Category,Create_New_Zone, CustomUserCreationForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.urls import reverse
 from django.utils import timezone
@@ -709,3 +709,23 @@ def Update_Ticket(request,id):
                 'form': Create_New_Ticket(instance=ticket),
                 'error': 'Error updating Ticket'
             })
+            
+def register_super_user(request):
+    if request.method == 'GET':
+        return render(request, 'create_superUser.html', {
+            'form': CustomUserCreationForm()
+        })
+    else:
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            print("Formulario válido")
+            user = form.save()
+            # Asignar permisos de administrador al nuevo usuario
+            group = Group.objects.get(name='Administradores')
+            user.groups.add(group)
+            login(request, user)
+            return redirect('index')  # Ajusta la redirección según tu configuración
+        else:
+            print("Formulario no válido:", form.errors)
+
+    return render(request, 'create_superUser.html', {'form': form})

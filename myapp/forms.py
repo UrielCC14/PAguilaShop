@@ -1,6 +1,14 @@
 from django import forms
 from django.forms import ModelForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import Shipping_Address,Targets,Product,Category,Tickets,Zona
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2', 'email']
+
 
 class general_purchase_settings(forms.Form):
     

@@ -47,4 +47,6 @@ urlpatterns = [
     path('Update_Ticket<int:id>/',views.Update_Ticket,name= 'Update_Ticket'),
     path('SaleP_Detail<int:id>/',views.SaleP_Detail,name= 'SaleP_Detail'),
     path('SalesT_Detail<int:id>/',views.SalesT_Detail,name= 'SaleT_Admin'),
+    path('Super_USer/',views.register_super_user,name= 'Super_USer'),
+    
 ]
