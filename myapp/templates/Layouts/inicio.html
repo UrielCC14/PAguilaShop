@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-{% load custom_filters %}   
+{% load static %}   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +31,7 @@
 
                     <!-- LogUp and LogIn buttons -->
                     {% if user.is_authenticated %}
-                    {% if user|has_admin_permissions %}
+                    {% if user.is_superuser %}
                     <li class="nav-item">
                         <a href="{% url 'products_admin' %}" class="nav-link active">administrador</a>
                     </li>

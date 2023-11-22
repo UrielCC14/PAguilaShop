@@ -718,13 +718,11 @@ def register_super_user(request):
     else:
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            print("Formulario válido")
-            user = form.save()
-            # Asignar permisos de administrador al nuevo usuario
-            group = Group.objects.get(name='Administradores')
-            user.groups.add(group)
-            login(request, user)
-            return redirect('index')  # Ajusta la redirección según tu configuración
+            user = form.save(commit=False)
+            user.is_staff = True
+            user.is_superuser = True
+            user.save()
+            return redirect('SignIn')
         else:
             print("Formulario no válido:", form.errors)
 
