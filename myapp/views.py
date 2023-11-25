@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.http import HttpResponseServerError
+from django.shortcuts import render, redirect,http
 from .models import Category, Product, Sale, Tickets, Zona,Shipping_Address,Targets,Sale_Tickets
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
@@ -44,16 +45,20 @@ def Detail(request, id):
     })
 
 def tickets(request):
-    img = Zona.objects.filter(id=1)
-    category = Category.objects.all()
-    seating = Tickets.objects.all()
-    zone = Zona.objects.all()
-    return render(request, 'Tickets.html', {
-        'category': category,
-        'zone': zone,
-        'img': img,
-        'seating':seating
-    })
+    try:
+        img = Zona.objects.filter(id=1)
+        category = Category.objects.all()
+        seating = Tickets.objects.all()
+        zone = Zona.objects.all()
+        return render(request, 'Tickets.html', {
+            'category': category,
+            'zone': zone,
+            'img': img,
+            'seating':seating
+        })
+    except Exception as e:
+        print(f"Error en la vista de tickets: {str(e)}")
+        # Resto del código
 
 def seating(request, id):
     zones = get_object_or_404(Zona, id=id)
