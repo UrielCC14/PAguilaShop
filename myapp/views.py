@@ -43,7 +43,6 @@ def Detail(request, id):
         'product_get': product_get
     })
 
-
 def tickets(request):
     img = Zona.objects.filter(id=1)
     category = Category.objects.all()

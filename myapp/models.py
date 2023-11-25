@@ -21,7 +21,7 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200,unique=True)
     temporada = models.CharField(max_length=200,default='temporada')
     description = models.TextField()
     price = models.CharField(max_length=200)
