@@ -23,6 +23,13 @@
 {% endblock %}
 
 
+<!-- Imagen de la zona -->
+{% block simg %}
+{% for imagen in img %}
+<img src="/media/zones/{{imagen.images}}" alt="Estadio ">
+{% endfor %}
+{% endblock %}
+
 
 <!-- Asientos disponibles  -->
 {% block seating %}
