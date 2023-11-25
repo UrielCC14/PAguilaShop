@@ -1,5 +1,5 @@
 from django.http import HttpResponseServerError
-from django.shortcuts import render, redirect,http
+from django.shortcuts import render, redirect
 from .models import Category, Product, Sale, Tickets, Zona,Shipping_Address,Targets,Sale_Tickets
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
