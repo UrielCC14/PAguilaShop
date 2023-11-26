@@ -11,12 +11,15 @@
 
 body{
 
-    background: rgb(255,170,0);
-    background: linear-gradient(90deg, rgba(255,170,0,1) 0%, rgba(0,20,130,1) 100%);
+    background: #11435B;
+    /* background: rgb(255,170,0);
+    background: linear-gradient(90deg, rgba(255,170,0,1) 0%, rgba(0,20,130,1) 100%); */
 }
+
 
 .nav-bar{
 
+    padding: 0 3em;
     width: 100%;
     height: 75px;
     display: flex;
@@ -79,29 +82,31 @@ body{
 
 }
 
-/*Main*/
+.subtitle{
 
-.main{
-
-    padding: 10px 0;
-    /*background: #d42f2f;*/        
+    color: #953f9d;
+    font-size: 30px;
 
 }
-
-
 /*Article*/
 
 .article{
 
-    height: 89vh;
+    height: 92vh;
     width: 100%;
     display: flex;
-    /*background: #040e75;*/
+    /* background: #040e75; */
     
 }
 
 
 /*Inicio*/
+
+.titulo{
+
+    color: #6c0475;
+
+}
 
 .inicio{
 
@@ -131,22 +136,15 @@ body{
 
 .inicio-content h1,p{
 
-    color: #000;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: start;
 }
 
-.intercalated-bg span:nth-child(odd) {
-    background-color: #040e75; /* Color para las palabras impares */
-}
-    
-.intercalated-bg span:nth-child(even) {
-    background-color: #d42f2f; /* Color para las palabras pares */
-}
   
 .inicio-content h1{
 
+    color: #F2AA1F;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     margin-bottom: 25px;
@@ -179,7 +177,7 @@ body{
     width: 35%;
     border-radius: 20px;
     border: 2px solid #000;
-    background: #040e75;
+    /* background: #040e75; */
 
 }
 
@@ -191,93 +189,117 @@ body{
     height: 100%;
     display: flex;  
     flex-direction: column;
-    padding:20px;
+    background: rgb(158, 168, 158);
+    text-align: center;
 
 }
 
 .elements{
 
-    width: 90%;
+    width: 100%;
     height: 40%;
     margin: auto;
     display: flex;
-    justify-content: space-around;
-    padding: 25px;
+    flex-direction: column;
+    padding: 30px 25px;
+    /* background: darkmagenta; */
 
+}
+
+.element-container{
+
+    /* background: darkcyan; */
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    margin-bottom: 5em;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .element{
 
-    width: 25%;
-    height: 85%;
+    width: 20%;
+    height: 15em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 9px;
     text-align: center;
     padding: 15px;
-    /*background: #040e75;*/
+    background: #11435B;
+    justify-content: space-around;
+}
+
+.info-element{
+
+    /* background: #15CF84; */
+    width: 45%;
+    color: #090909;
 
 }
 
-.element h2{
+.element-container:nth-child(even){
 
-    margin-bottom: 10px;
-    color: rgb(0, 0, 0);
+    flex-direction: row-reverse;
 
 }
 
 .element i{
 
     font-size: 35px;
-    color: rgb(0, 0, 0);
+    background: #15CF84;
+    background: linear-gradient(to bottom right, #15CF84 37%, #0A2BCF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 
 }
 
 .info-container{
 
-    width:90%;
-    height: 70%;
-    margin: auto;
+    width:100%;
+    height: 70vh;
+    display: flex;
     margin-top: 25px;
     padding: 15px;
+    /* background: violet;   */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:0 7em;
 
 }
 
 .info{
 
-    height: 7em;
-    width: 90%;
-    background: rgb(255,170,0);
-    background: linear-gradient(90deg, rgba(255,170,0,1) 0%, rgba(0,20,130,1) 100%);
-    margin: auto;
-    margin-bottom:50px;
-    position: relative;
+    height: 90%;
+    width: 22em;
+    max-width: 25em;
+    /* background: #000; */
     display: flex;
+    flex-direction: column;
     padding: 10px;
     align-items: center;
-    border-radius: 7px;
+    justify-content: space-between;
+    border-bottom: solid 3px #000;
 
 }
 
+.info-img{
 
-.info h3{
+    /* background: #15CF84; */
+    height: 80%;
 
-    width:50%;
+}
+
+.info-img img{
+
+    width:100%;
+    height: 100%;
+    object-fit: cover;
     text-align: center;
     margin: auto;
     color: #444;
-
-}
-
-.info:nth-child(2n){
-
-    margin-left: 0;
-    flex-direction: row-reverse;
-    background: rgb(0,20,130);
-    background: linear-gradient(90deg, rgba(0,20,130,1) 0%, rgba(255,170,0,1) 100%);
-
-}
-
-.info:nth-child(1n){
-
-    margin-right: 0;
 
 }
 
@@ -287,8 +309,7 @@ body{
     width: 100%;
     height: 100%;
     margin: auto;
-    display: flex;
-    margin-top: 20px;
+    display: flex;  
     justify-content: space-evenly;
     background: #0e141b;
 
@@ -372,3 +393,4 @@ body{
     font-size: 15px;
 
 }
+

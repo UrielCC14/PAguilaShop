@@ -24,9 +24,14 @@
         <p class="fs-4 text-light">Price: {{producto.price}} </p>
         <p class="fs-4 text-light">Category: {{producto.category}} </p>
         <p class="fs-4 text-light">Season: {{producto.temporada}}</p>
+        {% if producto.units == NULL %}
+        <p class="fs-4 text-light">Unidades: No Units</p>
+        {% else %}
+        <p class="fs-4 text-light">Unidades: {{producto.units}}</p>
+        {% endif %}
         <div class="buttons">
             <button class="btn-option btn btn-primary"><a href="{% url 'update_product' producto.id %}" class="text-light">Modificar</a></button>
-            <button class="btn-option btn btn-primary"><a href="{% url 'delete_product' producto.id %}" class="text-light">Eliminar</a></button>
+            <button class="btn-option btn btn-danger"><a href="{% url 'delete_product' producto.id %}" class="text-light">Eliminar</a></button>
         </div>
         
     </div>

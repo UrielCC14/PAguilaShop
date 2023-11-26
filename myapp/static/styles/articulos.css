@@ -11,12 +11,10 @@
 
 body{
 
-    /* background: rgb(34, 193, 195);
-    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(23, 33, 44, 1) 100%); */
-    background: rgb(255,170,0);
-    background: linear-gradient(90deg, rgba(255,170,0,1) 0%, rgba(0,20,130,1) 100%);
+    background: #11435B;
 
 }
+
 
 
 .nav-bar{
@@ -82,13 +80,6 @@ body{
     cursor: pointer;
 }
 
-.main{
-
-    padding: 10px;
-    /*background: #d42f2f;*/
-
-}
-
 .article{
 
     height: 89vh;
@@ -120,7 +111,7 @@ body{
 
 .inicio-content h1,p{
 
-    color: #666;
+    color: #999;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: start;
@@ -140,7 +131,7 @@ body{
     font-size: 45px;
     margin-bottom: 25px;
     line-height: 50px;
-    color: #777;
+    color: #F2AA1F;
 
 }
 
@@ -179,7 +170,7 @@ body{
     height: 100%;
     display: flex;  
     flex-direction: column;
-    padding:20px;
+    padding:20px 0;
     /*background: gray;*/
 
 }
@@ -205,20 +196,23 @@ body{
     padding: 10px;
     justify-content: space-between;
     flex-wrap: wrap;
-    /*background: gold;*/
+    overflow-wrap: initial;
+    background: rgb(207, 204, 189);
+    padding: 2em 3em;
 
 }
 
 .producto{
 
-    height: 30em;
+    height: 100%;
     width: 17em;
     border-radius:7px;
     padding: 7px;
     margin: 1px 1px 3px 1px;
     text-align: center;
-    border: solid 4px #555;
+    border: solid 4px #3d82a2;
     margin-bottom: 15px;
+    background: #11435B;
 
 }
 
@@ -268,54 +262,31 @@ body{
 
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 1.5em 10px;
     text-align: center;
+    display: flex;  
     margin-top: 2em;
-}
-
-.otros-productos h2{
-
-    font-size: 3em;
-
+    justify-content: space-evenly;
 }
 
 .target{
 
-    width: 100%;
-    height: 30%;
+    width: 15em;
+    height: 15em;
     margin-top: 15px;
     padding: 10px;
     display: flex;
-    background: rgb(255,170,0);
-    background: linear-gradient(90deg, rgba(255,170,0,1) 0%, rgba(0,20,130,1) 100%);
+    flex-direction: column;
     border-radius: 7px;
+    border: solid #999 4px;
 }
 
+.target h3{
 
-.name-product{
-
-    display: flex;
-    height: 100%;
-    width: 20%;
-    /* background: violet; */
+    color: #000;
     margin: auto;
-    justify-content: center;
-    
-}
+    font-size: 30px;
 
-.name-product h3{
-
-    margin: auto;
-    font-size: 25px;
-
-}
-
-.description{
-
-    width: 75%;
-    height: 100%;
-    padding: 15px;
-    /*background: maroon;*/
 }
 
 .otros-productos-btn{
@@ -325,15 +296,6 @@ body{
     margin-top: 30px;
     border-radius: 11px;
     color: #000;
-
-}
-
-.target:nth-child(odd){
-
-    flex-direction: row-reverse;
-    background: rgb(0,20,130);
-    background: linear-gradient(90deg, rgba(0,20,130,1) 0%, rgba(255,170,0,1) 100%);
-    border-radius: 7px;
 
 }
 

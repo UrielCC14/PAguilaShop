@@ -75,13 +75,14 @@ class Create_NEw_Product(forms.ModelForm):
     
     class Meta:
         model = Product
-        fields = ['name','temporada','description','price','imagen','category']
+        fields = ['name','temporada','description','price','imagen','category','units']
    
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the product name'}),
             'temporada': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the season'}),
             'description': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the description'}),
             'price': forms.NumberInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the price'}),
+            'units': forms.NumberInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the Units'}),
         }
         
         

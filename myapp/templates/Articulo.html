@@ -22,8 +22,8 @@
         <div class="inicio">
 
             <div class="inicio-content">
-                <h1 class="text-body-emphasis">{{category.name}}</h1>
-                <p class="text-body-secondary">Encuentra todas las {{categoria.name}} Oficiales y de la mejor calidad del Club America.</p>
+                <h1 class="titulo">{{category.name}}</h1>
+                <p>Encuentra todas las {{categoria.name}} Oficiales y de la mejor calidad del Club America.</p>
 
                 {% if user.is_authenticated %}
 
@@ -44,20 +44,24 @@
     </article>
 
     <section class="section">
-
-        <h2 class="text-center">Todos nuestros productos</h2>
+        <h2 class="text-center subtitulo">Todos nuestros productos</h2>
         <div class="all-products">
 
             {% for producto in product %}
             <div class="producto">
             
                 <div class="img-producto">
-                    <img src="media/productos/{{producto.imagen}}" alt="producto">
+                    <img src="media/{{producto.imagen}}" alt="producto">
                 </div>
                 <div class="producto-Info">
                     <h3 class="text-center text-danger">{{producto.name}}</h3>
                     <p class="text-body-emphasis">Descripcion: {{producto.description}}</p>
                     <p class="text-body-emphasis">Precio: {{producto.price}}</p>
+                    {% if producto.units == NULL %}
+                    <p class="text-body-emphasis">Unidades: No Units</p>
+                    {% else %}
+                    <p class="text-body-emphasis">Unidades: {{producto.units}}</p>
+                    {% endif %}
                     <button class="btn btn-dark"><a href="{% url 'detail' producto.id %}" class="text-light">Comprar</a></button>
                 </div>
 
@@ -67,29 +71,14 @@
 
         </div>
 
+        <h2 class="text-center mt-5">Otras Secciones</h2>
         <div class="otros-productos">
-
-            <h2>Otras Secciones</h2>
-
             {% for target in targets %}
-
-            {% if target.name == 'tickets' %}
-
-            {% else %}
             <div class="target">
-                <div class="name-product">
-                    <h3>{{target.name}}</h3>
-                </div>
-                <div class="description">
-                    <p class="text-body-emphasis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui fugiat totam voluptate laboriosam obcaecati nesciunt, repudiandae consequatur sint sequi itaque ratione deleniti in facere eveniet tenetur, accusamus velit. Ipsam repellendus et magnam vitae similique ea natus nobis accusamus quis ad cum, fugiat alias ipsum maiores molestias laudantium harum doloremque corrupti.</p>
-                    <button class="btn btn-primary"><a href="{% url 'products' target.id %}" class="text-light">Ver</a></button>
-                </div>
-
+                <h3>{{target.name}}</h3>
+                <a href="{% url 'products' target.id %}" class="btn btn-primary text-light">Ver</a>
             </div>
-            {% endif %}
-
             {% endfor %}
-
         </div>
 
     </section>
@@ -107,16 +96,16 @@
 
     <div class="footer-sosial-media">
         <h3>Redes Sociales</h3>
-        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Facebook</a></i>
-        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Instagram</a></i>
-        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Twitter</a></i>
-        <i class="fa-brands fa-facebook"><a href="#">Siguenos en Goole</a></i>
+        <i class="fa-brands fa-facebook"><a href="#" class="text-light">Siguenos en Facebook</a></i>
+        <i class="fa-brands fa-instagram"><a href="#" class="text-light">Siguenos en Instagram</a></i>
+        <i class="fa-brands fa-twitter"><a href="#" class="text-light">Siguenos en Twitter</a></i>
+        <i class="fa-brands fa-tiktok"><a href="#" class="text-light">Siguenos en TikTok</a></i>
     </div>
     <div class="footer-contact">
         <h3>Informacion de Contacto</h3>
-        <i class="fa-solid fa-house"><a>safasfasasfsaf <br>safnaskfbaskfabsfa <br>nsaijkhdasufhsafh</a></i>
+        <i class="fa-solid fa-house"><a>Ciudad de Mexico<br>Alcaldia Benito Juarez<br>Colonia Madero</a></i>
         <i class="fa-solid fa-mobile-screen"><a>+52 55-0245-0025</a></i>
-        <i class="fa-regular fa-envelope"><a>saihafiuh@gmail.com</a></i>
+        <i class="fa-regular fa-envelope"><a>aguilashopofficial@gmail.com</a></i>
     </div>
 
 </footer>

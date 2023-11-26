@@ -4,7 +4,11 @@ body {
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
+label{
 
+    color: #c3bbbb;
+    
+}
 .main{
     height: 100%;
     padding: 15px;

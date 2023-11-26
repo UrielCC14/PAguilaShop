@@ -27,6 +27,7 @@ class Product(models.Model):
     price = models.CharField(max_length=200)
     imagen = models.ImageField(upload_to='productos', null=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
+    units = models.CharField(max_length=200,null=True)
     
     def __str__(self):
         return self.name

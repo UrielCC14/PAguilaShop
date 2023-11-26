@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-transparent navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark px-5">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">AguilaShop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,9 +50,6 @@
                     <li class="nav-item">
                         <button class="btn btn-dark"><a href="{% url 'SignIn' %}">SignIn</a></button>
                     </li>
-                    <li class="nav-item">
-                        <button class="btn btn-dark"><a href="{% url 'Super_USer' %}">Create Super User</a></button>
-                    </li>
                     {% endif %}
                 </ul>
             </div>
@@ -66,8 +63,8 @@
             <div class="inicio">
 
                 <div class="inicio-content">
-                    <h1 class="intercalated-bg">Encuentra todos los productos del Club America</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa temporibus odio qui laborum illum amet beatae esse error totam tempora.</p>
+                    <h1>Los productos de tu equipo favorito en un solo lugar</h1>
+                    <p>Comparte de la emocion del futbol con nuestros productos hechos solo para los mas grandes amantes del Futbol y del Club America</p>
 
                     {% if user.is_authenticated %}
 
@@ -90,20 +87,37 @@
         </article>
 
         <section class="section">
-
+            <h2 class="titulo">Sobre Nosotros</h2>
             <div class="elements">
 
-                <div class="element">
-                    <h2 class="fs-4">Seguridad y Proteccion en tus compras</h2>
-                    <i class="fa-solid fa-lock"></i>
+                <div class="element-container">
+                    <div class="element">
+                        <h2 class="subtitle">Seguridad y Proteccion</h2>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div class="info-element">
+                        <p>Todas tus compras estaran protegidas gracias a nuestro sistema de seguridad y antirrobo, en caso de extravios en la entrega o algun error o defecto en el producto, reportar al numero 55 2013-2545 para posteriormente proceder con su rembolso segun corresponda</p>
+                    </div>
                 </div>
-                <div class="element">
-                    <h2 class="fs-4">Productos Verificados por el Club America</h2>
-                    <i class="fa-solid fa-spell-check"></i>
+
+                <div class="element-container">
+                    <div class="element">
+                        <h2 class="subtitle">Verificados Por Club America</h2>
+                        <i class="fa-solid fa-spell-check"></i>
+                    </div>
+                    <div class="info-element">
+                        <p>Todos nuestros productos estan verificados por Club America Official, y estos tienen un sello de autenticidad el cual viene incluido con el producto, ademas cada uno de nuestros productos tiene una garantia de 30 dias, para mas informacion consulta los terminos de servicio.</p>
+                    </div>
                 </div>
-                <div class="element">
-                    <h2 class="fs-4">Productos Verificados por el Club America</h2>
-                    <i class="fa-solid fa-spell-check"></i>
+
+                <div class="element-container">
+                    <div class="element">
+                        <h2 class="subtitle ">Productos de Primera</h2>
+                        <i class="fa-solid fa-ranking-star"></i>
+                    </div>
+                    <div class="info-element">
+                        <p>Cada uno de nuestros productos estan fabricados con materiales de primera, con lo cual aseguramos calidad a todos nuestros aficionados del Club America. Para mas informacion puedes llamar al siguiente numero: 55 2015-2026</p>
+                    </div>
                 </div>
 
             </div>
@@ -111,16 +125,24 @@
             <div class="info-container">
 
                 <div class="info">
-                    <h3 class="fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                    <p class="fs-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aspernatur excepturi libero dicta, rem minus odio voluptatibus ex molestias soluta nesciunt adipisci placeat! Voluptatem quas harum praesentium voluptatibus, a ad.</p>
+                    <div class="info-img">
+                        <img src="{% static 'IMG/img-1.jpg' %}" alt="IMG">
+                    </div>
+                    <h3 class="text-center fs-5 mt-2">Un sitio web intuitivo y de facil acceso para todos los usuarios de nuestra Plataforma.</h3>
                 </div>
+
                 <div class="info">
-                    <h3 class="fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                    <p class="fs-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aspernatur excepturi libero dicta, rem minus odio voluptatibus ex molestias soluta nesciunt adipisci placeat! Voluptatem quas harum praesentium voluptatibus, a ad.</p>
+                    <div class="info-img">
+                        <img src="{% static 'IMG/img-2.jpg' %}" alt="IMG">
+                    </div>
+                    <h3 class="text-center fs-5 mt-2">Un sitio web multiplataforma para una mayor accesibilidad para los usuarios.</h3>
                 </div>
+
                 <div class="info">
-                    <h3 class="fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                    <p class="fs-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aspernatur excepturi libero dicta, rem minus odio voluptatibus ex molestias soluta nesciunt adipisci placeat! Voluptatem quas harum praesentium voluptatibus, a ad.</p>
+                    <div class="info-img">
+                        <img src="{% static 'IMG/img-3.jpg' %}" alt="IMG">
+                    </div>
+                    <h3 class="text-center fs-5 mt-2">No te quedes sin estrenar con nuestras renovaciones constantes de inventarios.</h3>
                 </div>
 
             </div>
@@ -140,20 +162,18 @@
     
         <div class="footer-sosial-media">
             <h3>Redes Sociales</h3>
-            <i class="fa-brands fa-facebook"><a href="#">Siguenos en Facebook</a></i>
-            <i class="fa-brands fa-facebook"><a href="#">Siguenos en Instagram</a></i>
-            <i class="fa-brands fa-facebook"><a href="#">Siguenos en Twitter</a></i>
-            <i class="fa-brands fa-facebook"><a href="#">Siguenos en Goole</a></i>
+            <i class="fa-brands fa-facebook"><a href="#" class="text-light">Siguenos en Facebook</a></i>
+            <i class="fa-brands fa-instagram"><a href="#" class="text-light">Siguenos en Instagram</a></i>
+            <i class="fa-brands fa-twitter"><a href="#" class="text-light">Siguenos en Twitter</a></i>
+            <i class="fa-brands fa-tiktok"><a href="#" class="text-light">Siguenos en TikTok</a></i>
         </div>
         <div class="footer-contact">
             <h3>Informacion de Contacto</h3>
-            <i class="fa-solid fa-house"><a>safasfasasfsaf <br>safnaskfbaskfabsfa <br>nsaijkhdasufhsafh</a></i>
+            <i class="fa-solid fa-house"><a>Ciudad de Mexico<br>Alcaldia Benito Juarez<br>Colonia Madero</a></i>
             <i class="fa-solid fa-mobile-screen"><a>+52 55-0245-0025</a></i>
-            <i class="fa-regular fa-envelope"><a>saihafiuh@gmail.com</a></i>
+            <i class="fa-regular fa-envelope"><a>aguilashopofficial@gmail.com</a></i>
         </div>
 
     </footer>
-
-    <script src="{% static 'js/inicio.js' %}"></script>
 </body>
 </html>

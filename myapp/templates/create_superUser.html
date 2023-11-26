@@ -3,14 +3,14 @@
 {% block content %}
 <main class="container">
     <div class="row">
-        <div class="col-md-4 offset-md-4">
-            <form  method="post" class="card card-body mt-5 bg-transparent border-light" enctype="multipart/form-data">
-                <h1 class="text-info">Create Super User</h1>
+        <div class="col-md-5 offset-md-4 bg-light">
+            <form  method="post" class="card card-body mt-5 bg-transparent border-light rounded" enctype="multipart/form-data">
+                <h1 class="text-info mb-3">Create Super User</h1>
                 {{error}}
                 {% csrf_token %}
                 {{form.as_p}}
                 <div class="d-flex m-auto">
-                    <a href="{% url 'index' %}" class="btn btn-danger">Cancelar</a>
+                    <a href="{% url 'products_admin' %}" class="btn btn-danger">Cancelar</a>
                     <button class="btn btn-primary ms-3">Create</button>   
                 </div>
                 

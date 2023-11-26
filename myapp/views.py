@@ -122,7 +122,8 @@ def SignIn(request):
             request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
             return render(request, 'SignIn.html', {
-                'form': AuthenticationForm
+                'form': AuthenticationForm,
+                'error':'Username or Password incorrect'
             })
         else:
             login(request, user)
@@ -726,7 +727,7 @@ def register_super_user(request):
             user.is_staff = True
             user.is_superuser = True
             user.save()
-            return redirect('SignIn')
+            return redirect('products_admin')
         else:
             print("Formulario no válido:", form.errors)
 
