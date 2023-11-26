@@ -152,5 +152,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-WHITENOISE_AUTOREFRESH = False  # o False, prueba ambos
-WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True  # o False, prueba ambos
+WHITENOISE_USE_FINDERS = False
