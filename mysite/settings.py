@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -128,7 +128,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images)    
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -140,7 +140,7 @@ if not DEBUG:
 
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_URL = 'SignIn/'
 
@@ -152,8 +152,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-WHITENOISE_USE_FINDERS = False
-WHITENOISE_AUTOREFRESH = True
-WHITENOISE_STATIC_PREFIX = '/static/'
-WHITENOISE_INDEX_FILE = True
-WHITENOISE_COMPRESS = False  # Desactiva la compresión
+# WHITENOISE_USE_FINDERS = False
+# WHITENOISE_AUTOREFRESH = True
+# WHITENOISE_STATIC_PREFIX = '/static/'
+# WHITENOISE_INDEX_FILE = True
+# WHITENOISE_COMPRESS = False  # Desactiva la compresión
