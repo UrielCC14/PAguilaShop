@@ -152,5 +152,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-WHITENOISE_AUTOREFRESH = True  # o False, prueba ambos
 WHITENOISE_USE_FINDERS = False
+WHITENOISE_AUTOREFRESH = True
+WHITENOISE_STATIC_PREFIX = '/static/'
+WHITENOISE_INDEX_FILE = True
+WHITENOISE_COMPRESS = False  # Desactiva la compresión
