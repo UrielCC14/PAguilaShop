@@ -22,17 +22,20 @@ def index(request):
 
 
 def product_catalog(request, id):
-    change_category = Category.objects.all()
-    category = get_object_or_404(Category, id=id)
-    product = Product.objects.filter(category_id=id)
-    targets = Category.objects.all()
-    return render(request, 'Articulo.html', {
-        'category': category,
-        'product': product,
-        'elegir': change_category,
-        'targets': targets
-    })
-
+    try:
+        change_category = Category.objects.all()
+        category = get_object_or_404(Category, id=id)
+        product = Product.objects.filter(category_id=id)
+        targets = Category.objects.all()
+        return render(request, 'Articulo.html', {
+            'category': category,
+            'product': product,
+            'elegir': change_category,
+            'targets': targets
+        })
+    except Exception as e:
+        print(f"Error en la vista de tickets: {str(e)}")
+        # Resto del código
 
 def Detail(request, id):
     change_category = Category.objects.all()
