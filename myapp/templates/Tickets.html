@@ -26,7 +26,7 @@
 <!-- Imagen de la zona -->
 {% block simg %}
 {% for imagen in img %}
-<img src="/media/{{imagen.image}}" alt="Estadio ">
+<img src="{{ imagen.image.url }}" alt="Estadio">
 {% endfor %}
 {% endblock %}
 
