@@ -57,6 +57,7 @@
                     <h3 class="text-center text-danger">{{producto.name}}</h3>
                     <p class="text-body-emphasis">Descripcion: {{producto.description}}</p>
                     <p class="text-body-emphasis">Precio: {{producto.price}}</p>
+                    <p class="text-body-emphasis">URL: {{producto.imagen.url}}</p>
                     {% if producto.units == NULL %}
                     <p class="text-body-emphasis">Unidades: No Units</p>
                     {% else %}
