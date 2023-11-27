@@ -71,7 +71,7 @@ class Sale(models.Model):
 class Zona(models.Model):
     nombre = models.CharField(max_length=200,unique=True)
     descripcion = models.TextField(max_length=200)
-    image = models.ImageField(upload_to='zones',null=True)
+    image = models.ImageField(upload_to='zones/',null=True)
     
     def __str__(self):
         return self.nombre

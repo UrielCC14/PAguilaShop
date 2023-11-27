@@ -682,7 +682,7 @@ def Update_Zone(request,id):
     else:
         try:
             zone = get_object_or_404(Zona,id = id)
-            form = Create_New_Zone(request.POST, instance=zone)
+            form = Create_New_Zone(request.POST, request.FILES, instance=zone)
             form.save()
             return redirect('tickets_admin')
         except:
