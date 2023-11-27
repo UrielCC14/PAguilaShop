@@ -25,7 +25,7 @@ class Product(models.Model):
     temporada = models.CharField(max_length=200,default='temporada')
     description = models.TextField()
     price = models.CharField(max_length=200)
-    imagen = models.ImageField(upload_to='productos/', null=True)
+    imagen = models.ImageField(upload_to='productos', null=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     units = models.CharField(max_length=200,null=True)
     
