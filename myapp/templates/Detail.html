@@ -24,13 +24,13 @@
         </div>
         
 
-        <div class="datos card card-body bg-transparent border-secondary">
-            <h1 class="text-center text-warning">{{product.name}}</h1>
+        <div class="datos card card-body bg-transparent">
+            <h1 class="text-center text-info">{{product.name}}</h1>
             <br>
-            <p class="fs-3 text-warning-emphasis">Temporada: {{product.temporada}}</p>
-            <p class="fs-3 text-warning-emphasis">Descripcion: {{product.description}}</p>
-            <p class="fs-3 text-warning-emphasis">Precio: {{product.price}}</p>
-            <button class="btn btn-primary">
+            <p class="fs-3 text-info-emphasis">Temporada: {{product.temporada}}</p>
+            <p class="fs-3 text-info-emphasis">Descripcion: {{product.description}}</p>
+            <p class="fs-3 text-info-emphasis">Precio: {{product.price}}</p>
+            <button class="btn btn-dark">
                 <a href="{% url 'buy' product.id %}" class="text-light">Comprar</a>
             </button>
         </div>

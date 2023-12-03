@@ -167,3 +167,21 @@ body{
     background: #3974b9;
 
 }
+.search-form{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #000;
+
+}
+
+.search-bar{
+
+    height: 2em;
+    width: 80%;
+    border-radius: 11px;
+    border: solid 1.5px #000;
+    background: transparent;
+
+}

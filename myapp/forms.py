@@ -67,7 +67,7 @@ class Create_NEw_Product(forms.ModelForm):
     category = forms.ModelChoiceField(
         queryset=Category.objects.all(),
         empty_label="Select a category",
-        widget=forms.Select(attrs={'class': 'form-control bg-transparent text-light'})
+        widget=forms.Select(attrs={'class': 'form-control bg-transparent text-dark'})
     )
     imagen = forms.ImageField(  # Campo para la imagen
         widget=forms.ClearableFileInput(attrs={'class': 'form-control bg-transparent text-light'})
@@ -96,10 +96,11 @@ class Create_New_Ticket(forms.ModelForm):
     
     class Meta:
         model = Tickets
-        fields =['name','Precio','zona']
+        fields =['name','Precio','zona','comprado']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the product name'}),
             'Precio': forms.NumberInput(attrs={'class': 'form-control bg-transparent text-light', 'placeholder': 'Write the season'}),
+            'comprado': forms.CheckboxInput(attrs={'class': 'form-check-input m-auto text-light'}),
         }
         
 class general_purchase_settings_ticket(forms.Form):

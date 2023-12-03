@@ -2,13 +2,9 @@
 
 {% block navLately %}
 {% for category in change_category %}
-{% if category.id == 5  %}
-
-{% else %}
 <li>
     <a href="{% url 'product_admin' category.id %}">{{category.name}}</a>
 </li>
-{% endif %}
 {% endfor %}
 {% endblock %}
 
@@ -16,7 +12,7 @@
 {% for producto in products %}
 <div class="product">
     <div class="product-img">
-        <img src="/media/{{producto.imagen}}" alt="Imagen">
+        <img src="{{ producto.imagen.url }}" alt="Imagen">
     </div>
     <div class="product_detail">
         <h2 class="text-info text-center">{{producto.name}}</h2>
@@ -31,9 +27,8 @@
         {% endif %}
         <div class="buttons">
             <button class="btn-option btn btn-primary"><a href="{% url 'update_product' producto.id %}" class="text-light">Modificar</a></button>
-            <button class="btn-option btn btn-danger"><a href="{% url 'delete_product' producto.id %}" class="text-light">Eliminar</a></button>
+            <button class="btn-option btn btn-danger"><a href="{% url 'delete_product' producto.id producto.category.id %}" class="text-light">Eliminar</a></button>
         </div>
-        
     </div>
 </div>
 {% endfor %}

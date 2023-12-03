@@ -3,12 +3,9 @@
 <!-- Nav Bar -->
 {% block nav %}
 {% for categoria in elegir %}
-{% if categoria.id == 5%}
-{% else %}
 <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="{% url 'products' categoria.id %}">{{categoria.name}}</a>
 </li>
-{% endif%}
 {% endfor %}
 {% endblock %}
 
@@ -23,7 +20,7 @@
 
             <div class="inicio-content">
                 <h1 class="titulo">{{category.name}}</h1>
-                <p>Encuentra todas las {{categoria.name}} Oficiales y de la mejor calidad del Club America.</p>
+                <p>Encuentra todas las {{category.name}} Oficiales y de la mejor calidad del Club America.</p>
 
                 {% if user.is_authenticated %}
 
@@ -45,8 +42,12 @@
 
     <section class="section">
         <h2 class="text-center subtitulo">Todos nuestros productos</h2>
+        <form method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Buscar productos" class="search-bar">
+            <button type="submit" class="btn btn-dark">Buscar</button>
+        </form>
         <div class="all-products">
-
+            {% if product %}
             {% for producto in product %}
             <div class="producto">
             
@@ -55,6 +56,7 @@
                 </div>
                 <div class="producto-Info">
                     <h3 class="text-center text-danger">{{producto.name}}</h3>
+                    <p class="text-body-emphasis">Temporada: {{producto.temporada}}</p>
                     <p class="text-body-emphasis">Descripcion: {{producto.description}}</p>
                     <p class="text-body-emphasis">Precio: {{producto.price}}</p>
                     {% if producto.units == NULL %}
@@ -62,12 +64,13 @@
                     {% else %}
                     <p class="text-body-emphasis">Unidades: {{producto.units}}</p>
                     {% endif %}
-                    <button class="btn btn-dark"><a href="{% url 'detail' producto.id %}" class="text-light">Comprar</a></button>
                 </div>
-
+                <button class="btn btn-dark"><a href="{% url 'detail' producto.id %}" class="text-light">Comprar</a></button>
             </div>
-
             {% endfor %}
+            {% else %}
+            <h2 class="m-auto text-dark">No se encontraron productos.</h2>
+            {% endif %}
 
         </div>
 

@@ -33,6 +33,10 @@
 
 <!-- Asientos disponibles  -->
 {% block seating %}
+<form method="GET" class="search-form">
+    <input type="text" name="q" placeholder="Buscar asientos" class="search-bar">
+    <button type="submit" class="btn btn-dark">Buscar</button>
+</form>
 {% for asiento in seating %}
 {% if asiento.comprado == True %}
 <li class="seating">

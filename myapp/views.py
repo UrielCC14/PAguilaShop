@@ -10,6 +10,7 @@ from .forms import general_purchase_settings,Create_Address_Form,Create_Target_F
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.urls import reverse
 from django.utils import timezone
+from django.db.models import Q
 
 # Create your views here.
 
@@ -25,8 +26,15 @@ def product_catalog(request, id):
     try:
         change_category = Category.objects.all()
         category = get_object_or_404(Category, id=id)
-        product = Product.objects.filter(category_id=id)
         targets = Category.objects.all()
+
+        # Procesar la búsqueda
+        query = request.GET.get('q')
+        if query:
+            product = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query), category_id=id)
+        else:
+            product = Product.objects.filter(category_id=id)
+
         return render(request, 'Articulo.html', {
             'category': category,
             'product': product,
@@ -35,7 +43,8 @@ def product_catalog(request, id):
         })
     except Exception as e:
         print(f"Error en la vista de tickets: {str(e)}")
-        # Resto del código
+        # Devolver una respuesta de error 500 en caso de excepción
+        return HttpResponseServerError("Error interno en el servidor. Por favor, inténtalo de nuevo más tarde.")
 
 def Detail(request, id):
     change_category = Category.objects.all()
@@ -64,21 +73,32 @@ def tickets(request):
         # Resto del código
 
 def seating(request, id):
-    zones = get_object_or_404(Zona, id=id)
-    zone = Zona.objects.all()
-    img = Zona.objects.filter(id=id)
-    seating = Tickets.objects.filter(zona_id=id)
-    category = Category.objects.all()
-    all_seating = Tickets.objects.all()
-    return render(request, 'Tickets.html', {
-        'zones': zones,
-        'zone': zone,
-        'seating': seating,
-        'category': category,
-        'all_seating': all_seating,
-        'img': img
-    })
+    try:
+        zones = get_object_or_404(Zona, id=id)
+        zone = Zona.objects.all()
+        img = Zona.objects.filter(id=id)
+        category = Category.objects.all()
+        all_seating = Tickets.objects.all()
 
+        # Procesar la búsqueda
+        query = request.GET.get('q')
+        if query:
+            seating = Tickets.objects.filter(Q(name__icontains=query) | Q(Precio__icontains=query), zona_id=id)
+        else:
+            seating = Tickets.objects.filter(zona_id=id)
+
+        return render(request, 'Tickets.html', {
+            'zones': zones,
+            'zone': zone,
+            'seating': seating,
+            'category': category,
+            'all_seating': all_seating,
+            'img': img
+        })
+    except Exception as e:
+        print(f"Error en la vista de tickets: {str(e)}")
+        # Devolver una respuesta de error 500 en caso de excepción
+        return HttpResponseServerError("Error interno en el servidor. Por favor, inténtalo de nuevo más tarde.")
 
 def SignUp(request):
     if request.method == 'GET':
@@ -204,7 +224,6 @@ def products_admin(request):
 @login_required
 def product_admin(request,id = None):
     change_category = Category.objects.all()
-
     if id:
         products = Product.objects.filter(category = id)        
         category = Category.objects.get(id = id)
@@ -469,8 +488,12 @@ def Create_Products(request):
                 new_product = form.save(commit=False)
                 new_product.category = form.cleaned_data['category']
                 new_product.save()
-                admin_url = reverse('product_admin',args=[1])
-                return redirect(admin_url)
+                return redirect('products_admin')
+            else:
+                return render(request, 'Create_Product.html', {
+                'form': form,
+                'error': 'Invalid data. The product already exist.'
+            })
         except:
             return render(request, 'Create_Product.html', {
                 'form': form,
@@ -503,10 +526,10 @@ def Update_Product(request,id):
             })
             
 @user_passes_test(user_has_admin_permissions)
-def Product_Delete(request,id):
-    product = get_object_or_404(Product,id = id)
+def Product_Delete(request,id,category_id):
+    product = get_object_or_404(Product, id = id)
     product.delete()
-    admin_url = reverse('product_admin',args=[1])
+    admin_url = reverse('product_admin',args=[category_id])
     return redirect(admin_url)
 
 @user_passes_test(user_has_admin_permissions)
@@ -700,8 +723,8 @@ def Delete_Ticket(request,id):
 
 @user_passes_test(user_has_admin_permissions)
 def Update_Ticket(request,id):
+    ticket = get_object_or_404(Tickets,id = id)
     if request.method == 'GET':
-        ticket = get_object_or_404(Tickets,id = id)
         return render(request, 'update_ticket.html',{
             'form': Create_New_Ticket(instance=ticket)
         })
