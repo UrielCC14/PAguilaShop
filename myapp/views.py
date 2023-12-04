@@ -178,18 +178,45 @@ def Buy_confirm(request, id):
             delivery_address = get_object_or_404(Shipping_Address, id=delivery_address_id)
             payment_method = get_object_or_404(Targets, id=payment_method_id)
             
-            Sale.objects.create(
-            user=request.user,
-            product=product,
-            delivery_address=delivery_address,
-            payment_method=payment_method,
-            contact_number=request.POST['contact_number'],
-            specifications=request.POST['delivery_specifications'],
-            amount=request.POST['amount'],
-            total=request.POST['total']
-            )
-            return redirect('Successful')
-        except:
+            # Check if there are enough units available
+            units_to_purchase = int(request.POST['amount'])
+            units_avaible =  int(product.units)
+            
+            if units_to_purchase > units_avaible:
+                # Return an error message or handle the case where there are not enough units
+                change_category = Category.objects.all()
+                category = get_object_or_404(Product, id=id)
+                product = Product.objects.get(id=id)
+                address = Shipping_Address.objects.filter(user_id = request.user)
+                target = Targets.objects.filter(user_id = request.user)
+                form_general_setting = general_purchase_settings
+                form_general_setting= general_purchase_settings(initial={'product': product.name,'product_id':product.id,'price':product.price})
+                return render(request, 'Comprar.html', {
+                    'change_category': change_category,
+                    'category': category,
+                    'product': product,
+                    'form_general_setting' : form_general_setting,
+                    'address': address,
+                    'target':target,
+                    'error': 'Number of units not available'
+                })
+            else:
+                units_avaible -= units_to_purchase
+                product.units = units_avaible
+                product.save()
+                Sale.objects.create(
+                user=request.user,
+                product=product,
+                delivery_address=delivery_address,
+                payment_method=payment_method,
+                contact_number=request.POST['contact_number'],
+                specifications=request.POST['delivery_specifications'],
+                amount=request.POST['amount'],
+                total=request.POST['total']
+                )
+                
+                return redirect('Successful')
+        except Exception as e:
             change_category = Category.objects.all()
             category = get_object_or_404(Product, id=id)
             product = Product.objects.get(id=id)
@@ -204,7 +231,7 @@ def Buy_confirm(request, id):
                 'form_general_setting' : form_general_setting,
                 'address': address,
                 'target':target,
-                'error': 'ERROR.'
+                'error': e
             })
             
 @login_required

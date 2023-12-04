@@ -37,6 +37,7 @@
     <input type="text" name="q" placeholder="Buscar asientos" class="search-bar">
     <button type="submit" class="btn btn-dark">Buscar</button>
 </form>
+{% if seating %}
 {% for asiento in seating %}
 {% if asiento.comprado == True %}
 <li class="seating">
@@ -57,4 +58,7 @@
 </li>
 {% endif %}
 {% endfor %}
+{% else %}
+<h2 class="m-auto text-center">No se encontraron Asientos</h2>
+{% endif %}
 {% endblock %}

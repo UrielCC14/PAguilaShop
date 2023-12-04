@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
                     </li>
                     {% block nav %}
                     {% endblock %}
@@ -36,21 +36,21 @@
                     {% if user.is_staff %}
                     {# Si el usuario es un administrador #}
                     <li class="nav-item">
-                        <a href="{% url 'products_admin' %}" class="nav-link active">administrador</a>
+                        <a href="{% url 'products_admin' %}" class="nav-link active">Administrador</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'shopping_history' %}">Sales</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-dark"><a href="{% url 'SignOut' %}">LogOut</a></button>
+                        <button class="btn btn-dark"><a href="{% url 'SignOut' %}">Cerrar Sesion</a></button>
                     </li>
                     {% else %}  
                     <li class="nav-item">
-                        <button class="btn btn-dark"><a href="{% url 'SignUp' %}">SignUp</a></button>
+                        <button class="btn btn-dark"><a href="{% url 'SignUp' %}">Registrarse</a></button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-dark"><a href="{% url 'SignIn' %}">SignIn</a></button>
+                        <button class="btn btn-dark"><a href="{% url 'SignIn' %}">Iniciar Sesion</a></button>
                     </li>
                     {% endif %}
                 </ul>
